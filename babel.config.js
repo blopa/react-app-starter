@@ -4,19 +4,8 @@ module.exports = (api) => {
     const conditionalPresets = [];
 
     const presets = [
-        [
-            '@babel/env', {
-                useBuiltIns: 'usage',
-                corejs: {
-                    version: '@3',
-                    proposals: true,
-                },
-                targets: {
-                    browsers: process.env.BABEL_SUPPORTED_BROWSERS || '',
-                },
-            },
-        ],
-        '@babel/react',
+        '@babel/preset-react',
+        '@babel/preset-env',
         ...conditionalPresets,
     ];
 
@@ -73,6 +62,7 @@ module.exports = (api) => {
         '@babel/proposal-class-properties',
         '@babel/syntax-dynamic-import',
         '@babel/transform-runtime',
+        '@babel/plugin-transform-react-jsx',
         ...conditionalPlugins,
     ];
 
