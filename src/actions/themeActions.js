@@ -1,19 +1,15 @@
-import * as constants from './../constants'
+import * as constants from '../constants';
 
-export const updateTheme = (theme) => {
-  return (dispatch) => dispatch({
+export const updateTheme = (theme) => (dispatch) => dispatch({
     type: constants.UPDATE_THEME,
     payload: {
-      theme,
+        theme,
     },
-  })
-}
+});
 
-export const updateThemeType = (type) => {
-  return (dispatch) => dispatch({
+export const updateThemeType = (type) => (dispatch) => dispatch({
     type: constants.UPDATE_THEME_TYPE,
     payload: {
-      type,
+        type,
     },
-  })
-}
+});

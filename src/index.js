@@ -1,32 +1,33 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { createStore, applyMiddleware } from 'redux'
-import compose from 'recompose/compose'
-import thunk from 'redux-thunk'
-import { createLogger } from 'redux-logger'
-import { Provider } from 'react-redux'
+import React from 'react';
+import { render } from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
+import compose from 'recompose/compose';
+import thunk from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+import { Provider } from 'react-redux';
 
-import constants from './constants'
-import rootReducer from './rootReducer'
-import App from './App'
+import constants from './constants';
+import rootReducer from './rootReducer';
+import App from './App';
 
-const middlewares = [thunk]
+const middlewares = [thunk];
 
 if (process.env.NODE_ENV === constants.MODE_DEVELOPMENT) {
-  middlewares.push(createLogger())
+    middlewares.push(createLogger());
 }
 
 const store = createStore(
-  rootReducer,
-  compose(
-    applyMiddleware(...middlewares),
-    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
-  )
-)
+    rootReducer,
+    compose(
+        applyMiddleware(...middlewares),
+        // eslint-disable-next-line no-underscore-dangle
+        window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
+    )
+);
 
-render (
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-)
+render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
+);

@@ -1,11 +1,11 @@
 export default {
-  palette: {
-    type: "light",
-    primary: {
-      main: "#424242",
+    palette: {
+        type: 'light',
+        primary: {
+            main: '#424242',
+        },
+        secondary: {
+            main: '#ffd62c',
+        },
     },
-    secondary: {
-      main: "#ffd62c",
-    },
-  },
-}
+};
