@@ -1,5 +1,5 @@
 {
-    "name": "template-frontend-react-redux-mui",
+    "name": "react-app-starter",
     "version": "0.0.1",
     "description": "A template for quickly setting up a react/redux/Material UI frontend",
     "keywords": [
@@ -7,7 +7,7 @@
         "React",
         "Redux"
     ],
-    "repository": "github:FutureCitiesCatapult/template-frontend-react-redux-mui",
+    "repository": "github:blopa/react-app-starter",
     "main": "src/index.js",
     "scripts": {
         "build": "npm run clean && webpack --mode production --progress",
@@ -17,9 +17,7 @@
         "serve": "serve build",
         "setup": "rm -rf node_modules && touch .env && npm install && npm audit fix"
     },
-    "author": "Andy Anderson <andy@andyscript.com>",
-    "license": "ISC",
-    "private": true,
+    "author": "Pablo Pirata",
     "dependencies": {
         "@material-ui/core": "^4.11.0",
         "@material-ui/icons": "^4.9.1",

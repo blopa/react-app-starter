@@ -1,5 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable global-require */
 const path = require('path');
+const { DefinePlugin } = require('webpack');
 const BrotliPlugin = require('brotli-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
@@ -11,7 +13,12 @@ require('dotenv-defaults').config({
 });
 
 const commonConfig = {
-    entry: './src/index.js',
+    entry: {
+        main: path.resolve(__dirname, './src/index.js'),
+        vendor: Object.keys(
+            require('./package.json').dependencies
+        ),
+    },
     resolve: {
         extensions: ['.js', '.jsx'],
     },
@@ -70,6 +77,9 @@ const commonConfig = {
         new Dotenv({
             defaults: `${__dirname}/.env.sample`,
             path: `${__dirname}/.env`,
+        }),
+        new DefinePlugin({
+            VERSION: JSON.stringify(require('./package.json').version),
         }),
         new HtmlWebPackPlugin({
             template: './src/template.html',
